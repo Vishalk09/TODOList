@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="KGk-i7-Jjw" customClass="LocalTODOListTableViewCell" customModule="TODOList" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfe-AM-eHd">
+                        <rect key="frame" x="10" y="5" width="42" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="7NT-Rg-z93"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BOg-td-spn">
+                        <rect key="frame" x="270" y="5" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="DjM-MN-ghG"/>
+                            <constraint firstAttribute="height" constant="45" id="Olx-1C-wtq"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="checkmark.circle" catalog="system"/>
+                        <connections>
+                            <action selector="clickOnCompleted:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="See-YR-QKn"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="BOg-td-spn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2y3-NO-pbb"/>
+                    <constraint firstAttribute="trailing" secondItem="BOg-td-spn" secondAttribute="trailing" constant="5" id="31Y-ya-1Gj"/>
+                    <constraint firstItem="BOg-td-spn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="3Wu-A5-ryb"/>
+                    <constraint firstItem="vfe-AM-eHd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="q4e-IC-gSn"/>
+                    <constraint firstAttribute="bottom" secondItem="vfe-AM-eHd" secondAttribute="bottom" constant="5" id="qrO-9d-xIC"/>
+                    <constraint firstItem="vfe-AM-eHd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="scc-lB-8c7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="isCompleted" destination="BOg-td-spn" id="M4C-xX-HRC"/>
+                <outlet property="title" destination="vfe-AM-eHd" id="RxD-Ga-Jy9"/>
+            </connections>
+            <point key="canvasLocation" x="-119.08396946564885" y="16.197183098591552"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="checkmark.circle" catalog="system" width="128" height="123"/>
+    </resources>
+</document>
