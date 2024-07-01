@@ -10,12 +10,8 @@ import Foundation
 class TODOFetchedListViewModel {
     
     let worker = TODOListFetchWorker()
-    
 
-    
-    
     func fetchData(_ completion: @escaping (_ data: [TODOResponseModel]) -> Void) {
-        print("#### Fetch Data")
         worker.fetchData() { data in
             completion(data)
         }

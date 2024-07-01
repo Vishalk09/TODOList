@@ -7,16 +7,11 @@
 
 import UIKit
 
-protocol AddDataCompletionProtocol {
-    func didAddData()
-}
-
 class AddDataViewController: UIViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     let viewModel = TODOListViewModel()
-    var delegate: AddDataCompletionProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,15 +20,6 @@ class AddDataViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBAction func addData(_ sender: Any) {
         if isTextfieldEmpty() {
             let action = UIAlertAction(title: "Required field is empty", style: .cancel)
@@ -49,9 +35,7 @@ class AddDataViewController: UIViewController {
             
             let model = LocalTODOListModel(date: date, title: titleTextField.text!, itemDescription: descriptionTextField.text!, isCompleted: false)
             viewModel.addData(model) { result in
-                print(result)
                 if result {
-                    delegate?.didAddData()
                     navigationController?.popViewController(animated: true)
                 }
             }

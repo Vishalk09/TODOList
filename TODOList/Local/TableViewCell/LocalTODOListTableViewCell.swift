@@ -7,12 +7,17 @@
 
 import UIKit
 
+protocol CellUpdateSuccessProtocol {
+    func updateDataSuccess()
+}
+
 class LocalTODOListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var isCompleted: UIButton!
     var data: LocalTODOListModel?
     var parentVC: UIViewController!
+    var delegate: CellUpdateSuccessProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +42,7 @@ class LocalTODOListTableViewCell: UITableViewCell {
                 model.isCompleted = !model.isCompleted
                 let viewModel = TODOListViewModel()
                 viewModel.updateData(model)
+                self.delegate?.updateDataSuccess()
                 self.isCompleted.tintColor = model.isCompleted ? .blue : .gray
             }
             let alertActionCancel = UIAlertAction(title: "Cancel", style: .cancel)

@@ -14,11 +14,8 @@ class TODOListViewModel {
         var modalArray: [LocalTODOListModel] = []
         let managedContext = PersistentStorage.shared.context
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TODOItem")
-        print("Fetching")
         do {
             let result = try managedContext.fetch(fetchRequest)
-            print("Fetched successfully")
-            print(result)
             for data in result as! [NSManagedObject] {
                 let dateString = data.value(forKey: "date") as! String
                 let title = data.value(forKey: "title") as! String
@@ -35,7 +32,6 @@ class TODOListViewModel {
                   
                 modalArray.append(LocalTODOListModel(date: date, title: title, itemDescription: description, isCompleted: isCompleted))
             }
-            print(modalArray)
             completion(modalArray)
         } catch {
             print("Error!")
@@ -90,7 +86,6 @@ class TODOListViewModel {
         todoItem.setValue(model.isCompleted as NSNumber, forKey: "isCompleted")
         
         do {
-            print("Did context change: \(managedContext.hasChanges)")
             try managedContext.save()
             completion(true)
         } catch {
